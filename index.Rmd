@@ -34,20 +34,22 @@ data <- data %>%
 #### Viz
 ```{r}
 ggplot(data, aes(n_species, rii_calc)) +
-  geom_point() +
-  geom_smooth(method = lm)
+  geom_point(aes(size = var.es, color = design), show_guide = FALSE) +
+  geom_smooth(method = lm, se = FALSE, color = "dodgerblue3", size = 2) +
+  scale_color_brewer(palette = "Paired") +
+  labs(x = "total number of plant species", y = "rii diversity")
 
 
-ggplot(data, aes(n_species, rii_calc, color = design)) +
-  geom_point() +
-  geom_smooth(method = lm)
+#ggplot(data, aes(n_species, rii_calc, color = design)) +
+  #geom_point() +
+  #geom_smooth(method = lm)
 
 ```
-
 
 #### Metamodels
 ```{r}
 library(meta)
+library(metafor)
 m1.1 <- metagen(rii_calc, var.es, comb.fixed = FALSE, data = data)
 summary(m1.1)
 #metabias(m1.1)
@@ -57,6 +59,13 @@ plot(m1.2)
 summary(m1.2)
 bubble(m1.2)
 
+m1.3 <- metareg(m1.1, ~ poly(n_species,2))
+plot(m1.3)
+summary(m1.3)
+#bubble(m1.3)
+
+anova(m1.2, m1.3) #to explore linear versus polynomial models
+permutest(m1.3) #to explore robuestness of model, ie. if cofficients are a relatively true representation of the variation in the estimate pattern in data
 
 ```
 
