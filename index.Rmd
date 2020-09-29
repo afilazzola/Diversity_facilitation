@@ -50,11 +50,13 @@ ggplot(data, aes(n_species, rii_calc, color = design)) +
 library(meta)
 m1.1 <- metagen(rii_calc, var.es, comb.fixed = FALSE, data = data)
 summary(m1.1)
+#metabias(m1.1)
 
 m1.2 <- metareg(m1.1, ~n_species)
 plot(m1.2)
 summary(m1.2)
 bubble(m1.2)
+
 
 ```
 
