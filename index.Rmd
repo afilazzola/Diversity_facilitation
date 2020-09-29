@@ -1,0 +1,46 @@
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+### BDEF richness reverse causation synthesis
+An exploration of richness as both driver and response in plant facilitation studies.  
+
+#### Data
+```{r}
+library(tidyverse)
+#library(gsheet)
+#data <- gsheet2tbl('docs.google.com/spreadsheets/d/1B6XudNqvx2kSjAB_l0plfrzyG0o6vuAsDxtwSVeBP3c')
+#write_csv(data, "data/diversity.csv")
+data <- read_csv("data/diversity.csv")
+
+#tidy data
+data <- data %>% 
+  mutate(rii_calc = (shrub-open)/(shrub + open)) %>%
+  filter(!is.na(n)) %>%
+  filter(!is.na(rii_calc)) %>%
+  mutate(lat = as.numeric(lat), n = as.numeric(n)) %>%
+  mutate(var.es = (shrub_error/(sqrt(n)))) %>%
+  filter(var.es > 0) %>% 
+  filter(!is.na(simplified_response))
+
+```
+
+
+#### Viz
+```{r}
+ggplot(data, aes(n_species, rii_calc)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+
+ggplot(data, aes(n_species, rii_calc, color = design)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+```
+
