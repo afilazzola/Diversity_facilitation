@@ -10,6 +10,30 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ### BDEF richness reverse causation synthesis
 An exploration of richness as both driver and response in plant facilitation studies.  
 
+### PRISMA
+Review process.
+
+```{r}
+library(PRISMAstatement)
+
+#Search from Web of Science updated Aug 2020: positive, facilitat*, shrub 
+
+prisma(found = 593,
+       found_other = 20,
+       no_dupes = 613, 
+       screened = 613, 
+       screen_exclusions = 0, 
+       full_text = 613,
+       full_text_exclusions = 310, 
+       qualitative = 19, 
+       quantitative = 19,
+       width = 600, height = 600)
+
+#a total of 19 studies comprising 141 independent observations
+
+```
+
+
 #### Data
 ```{r}
 library(tidyverse)
