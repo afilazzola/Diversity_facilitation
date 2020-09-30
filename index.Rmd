@@ -63,6 +63,15 @@ ggplot(data, aes(n_species, rii_calc)) +
   scale_color_brewer(palette = "Paired") +
   labs(x = "total number of plant species", y = "rii diversity")
 
+ggplot(data, aes(n_species, rii_calc)) +
+  geom_point(aes(size = var.es), show_guide = FALSE) +
+  geom_smooth(method = lm, se = FALSE, color = "black", size = 2) +
+  scale_color_brewer(palette = "Paired") +
+  labs(x = "total number of plant species", y = "rii diversity") +
+  geom_hline(yintercept = 0, linetype = 2, colour = "red", size = 1) +
+  ylim(-1,1) +
+  xlim(0,80)
+
 
 #ggplot(data, aes(n_species, rii_calc, color = design)) +
   #geom_point() +
