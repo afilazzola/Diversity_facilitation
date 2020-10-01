@@ -1602,8 +1602,8 @@ prisma(found = 593,
        qualitative = 19, 
        quantitative = 19,
        width = 600, height = 600)</code></pre>
-<div id="htmlwidget-39d1413f34a59c638f91" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-39d1413f34a59c638f91">{"x":{"diagram":"digraph prisma {\n    node [shape=\"box\", fontsize = 10];\n    graph [splines=ortho, nodesep=1, dpi = 72]\n    a -> nodups;\n    b -> nodups;\n    a [label=\"Records identified through\ndatabase searching\n(n = 593)\"];\n    b [label=\"Additional records identified\nthrough other sources\n(n = 20)\"]\n    nodups -> incex;\n    nodups [label=\"Records after duplicates removed\n(n = 613)\"];\n    incex -> {ex; ft}\n    incex [label=\"Records screened\n(n = 613)\"];\n    ex [label=\"Records excluded\n(n = 0)\"];\n    {rank=same; incex ex}\n    ft -> {qual; ftex};\n    ft [label=\"Full-text articles assessed\nfor eligibility\n(n = 613)\"];\n    {rank=same; ft ftex}\n    ftex [label=\"Full-text articles excluded,\nwith reasons\n(n = 310)\"];\n    qual -> quant\n    qual [label=\"Studies included in qualitative synthesis\n(n = 19)\"];\n    quant [label=\"Studies included in\nquantitative synthesis\n(meta-analysis)\n(n = 19)\"];\n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ac6bbf545703a46254fa" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ac6bbf545703a46254fa">{"x":{"diagram":"digraph prisma {\n    node [shape=\"box\", fontsize = 10];\n    graph [splines=ortho, nodesep=1, dpi = 72]\n    a -> nodups;\n    b -> nodups;\n    a [label=\"Records identified through\ndatabase searching\n(n = 593)\"];\n    b [label=\"Additional records identified\nthrough other sources\n(n = 20)\"]\n    nodups -> incex;\n    nodups [label=\"Records after duplicates removed\n(n = 613)\"];\n    incex -> {ex; ft}\n    incex [label=\"Records screened\n(n = 613)\"];\n    ex [label=\"Records excluded\n(n = 0)\"];\n    {rank=same; incex ex}\n    ft -> {qual; ftex};\n    ft [label=\"Full-text articles assessed\nfor eligibility\n(n = 613)\"];\n    {rank=same; ft ftex}\n    ftex [label=\"Full-text articles excluded,\nwith reasons\n(n = 310)\"];\n    qual -> quant\n    qual [label=\"Studies included in qualitative synthesis\n(n = 19)\"];\n    quant [label=\"Studies included in\nquantitative synthesis\n(meta-analysis)\n(n = 19)\"];\n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>#a total of 19 studies comprising 141 independent observations</code></pre>
 <div id="data" class="section level4">
 <h4>Data</h4>
@@ -2094,9 +2094,9 @@ anova(m1.2, m1.3) #to explore linear versus polynomial models</code></pre>
 ## Model Results:
 ## 
 ##                      estimate      se     zval   pval*    ci.lb    ci.ub 
-## intrcpt                0.1023  0.0187   5.4649  0.0350   0.0656   0.1390    * 
+## intrcpt                0.1023  0.0187   5.4649  0.0240   0.0656   0.1390    * 
 ## poly(n_species, 2)1   -1.4841  0.1601  -9.2717  0.0010  -1.7978  -1.1704  *** 
-## poly(n_species, 2)2    0.2312  0.1891   1.2226  0.2690  -0.1394   0.6018      
+## poly(n_species, 2)2    0.2312  0.1891   1.2226  0.2430  -0.1394   0.6018      
 ## 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
